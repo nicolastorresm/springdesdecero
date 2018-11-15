@@ -43,8 +43,8 @@ public class ClienteController {
 	
 	//enviar desde submit los datos del formulario ingresado por usuario
 	@RequestMapping(value="/form", method=RequestMethod.POST)
-	public String guardar(@Valid Cliente cliente, BindingResult result ) {
-		
+	public String guardar(@Valid Cliente cliente, BindingResult result, Model model ) {
+		model.addAttribute("titulo", "Formulario de Cliente");
 		if (result.hasErrors()) {
 			return "form";
 		}
